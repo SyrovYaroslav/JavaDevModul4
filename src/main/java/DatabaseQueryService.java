@@ -27,7 +27,6 @@ public class DatabaseQueryService {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
         return maxWorkerSalaryList;
     }
 
@@ -48,7 +47,6 @@ public class DatabaseQueryService {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
         return maxProjectCountClientList;
     }
 
@@ -69,7 +67,6 @@ public class DatabaseQueryService {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
         return longestProjectList;
     }
 
@@ -91,7 +88,6 @@ public class DatabaseQueryService {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
         return youngestOrEldestWorkersList;
     }
 
@@ -112,7 +108,6 @@ public class DatabaseQueryService {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
         return projectPricesList;
     }
 

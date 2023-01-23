@@ -10,10 +10,12 @@ public class TestSelectClass {
         List<MaxWorkerSalary> maxWorkerSalary = new DatabaseQueryService().findMaxWorkerSalary();
         List<LongestProject> longestProjects = new DatabaseQueryService().findLongestProject();
 
-        System.out.println("maxProjectCountClients = " + maxWorkerSalary);
+        System.out.println("maxWorkerSalary = " + maxWorkerSalary);
         System.out.println("maxProjectCountClients = " + maxProjectCountClients);
         System.out.println("longestProjects = " + longestProjects);
         System.out.println("youngestOrEldestWorkers = " + youngestOrEldestWorkers);
         System.out.println("projectPrices = " + projectPrices);
+
+        Database.getInstanse().close();
     }
 }
