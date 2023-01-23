@@ -15,7 +15,5 @@ public class TestSelectClass {
         System.out.println("longestProjects = " + longestProjects);
         System.out.println("youngestOrEldestWorkers = " + youngestOrEldestWorkers);
         System.out.println("projectPrices = " + projectPrices);
-
-        Database.getInstanse().close();
     }
 }

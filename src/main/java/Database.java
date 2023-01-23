@@ -23,6 +23,7 @@ public class Database {
     public void executeUpdate(String sql) {
         try(Statement st = connection.createStatement()) {
             st.executeUpdate(sql);
+            connection.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -30,13 +31,5 @@ public class Database {
 
     public Connection getConnection() {
         return connection;
-    }
-
-    public void close() {
-        try {
-            connection.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 }

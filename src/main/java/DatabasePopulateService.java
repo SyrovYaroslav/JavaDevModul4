@@ -14,6 +14,5 @@ public class DatabasePopulateService {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        Database.getInstanse().close();
     }
 }
