@@ -1,4 +1,4 @@
-package DatabaseDto;
+package databaseDto;
 
 public class LongestProject {
     private String name;

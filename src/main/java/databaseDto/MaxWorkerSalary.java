@@ -1,4 +1,4 @@
-package DatabaseDto;
+package databaseDto;
 
 public class MaxWorkerSalary {
     private String name;

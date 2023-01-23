@@ -1,4 +1,4 @@
-package DatabaseDto;
+package databaseDto;
 
 import java.time.LocalDate;
 

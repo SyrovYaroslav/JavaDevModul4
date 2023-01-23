@@ -14,7 +14,6 @@ public class DatabaseInitService {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
+        Database.getInstanse().close();
     }
 }

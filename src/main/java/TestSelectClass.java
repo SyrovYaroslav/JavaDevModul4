@@ -1,4 +1,4 @@
-import DatabaseDto.*;
+import databaseDto.*;
 
 import java.util.List;
 
