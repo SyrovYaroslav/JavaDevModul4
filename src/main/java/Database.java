@@ -20,12 +20,11 @@ public class Database {
         return INSTANSE;
     }
 
-    public int executeUpdate(String sql) {
+    public void executeUpdate(String sql) {
         try(Statement st = connection.createStatement()) {
-            return st.executeUpdate(sql);
+            st.executeUpdate(sql);
         } catch (Exception ex) {
             ex.printStackTrace();
-            return -1;
         }
     }
 
