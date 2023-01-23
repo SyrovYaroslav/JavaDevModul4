@@ -1,0 +1,597 @@
+2023-01-22 20:59:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ограничение "CLIENT_ID_FK" уже существует
+Constraint "CLIENT_ID_FK" already exists; SQL statement:
+CREATE TABLE IF NOT EXISTS worker (
+    id IDENTITY PRIMARY KEY,
+    name VARCHAR(1003) NOT NULL CHECK (CHAR_LENGTH(name)>2 and CHAR_LENGTH(name)<1000),
+    birthday DATE CHECK (birthday > '1900-12-31'),
+    level VARCHAR(8) NOT NULL CHECK ( level IN ('Trainee', 'Junior', 'Middle', 'Senior') ),
+    salary INT CHECK (salary > 100 AND salary < 100000)
+) [90045-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:190)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:143)
+	at Database.executeUpdate(Database.java:25)
+	at DatabaseInitService.main(DatabaseInitService.java:13)
+2023-01-22 21:00:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Ограничение "CLIENT_ID_FK" уже существует
+Constraint "CLIENT_ID_FK" already exists; SQL statement:
+CREATE TABLE IF NOT EXISTS worker (
+    id IDENTITY PRIMARY KEY,
+    name VARCHAR(1003) NOT NULL CHECK (CHAR_LENGTH(name)>2 and CHAR_LENGTH(name)<1000),
+    birthday DATE CHECK (birthday > '1900-12-31'),
+    level VARCHAR(8) NOT NULL CHECK ( level IN ('Trainee', 'Junior', 'Middle', 'Senior') ),
+    salary INT CHECK (salary > 100 AND salary < 100000)
+) [90045-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:632)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:109)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:72)
+	at org.h2.command.ddl.AlterTable.update(AlterTable.java:46)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:58)
+	at org.h2.command.CommandList.update(CommandList.java:66)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:190)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:143)
+	at Database.executeUpdate(Database.java:25)
+	at DatabaseInitService.main(DatabaseInitService.java:13)
+2023-01-22 21:03:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"
+Syntax error in SQL statement "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"; SQL statement:
+INSERT INTO client
+(name)
+VALUES
+    ('Zoro'),
+    ('Luffy'),
+    ('Tanjiro'),
+    ('Gon'),
+    ('Ichigo'),
+
+
+INSERT INTO project
+(client_id, start_date, finish_date)
+VALUES
+    (1, '2017-10-12', '2020-03-08'),
+    (5, '2020-05-18', '2024-12-01'),
+    (5, '2018-07-17', '2023-01-01'),
+    (1, '2021-01-10', '2022-09-05'),
+    (2, '2021-08-21', '2022-04-19'),
+    (4, '2022-11-24', '2023-02-02'),
+    (3, '2019-09-14', '2022-12-11'),
+    (3, '2018-12-25', '2024-10-14'),
+    (1, '2017-06-10', '2025-06-11'),
+    (4, '2023-11-11', '2027-08-17'),
+    (2, '2022-12-01', '2024-01-13');
+
+INSERT INTO project_worker
+(project_id, worker_id)
+VALUES
+    (1, 13),
+    (1, 7),
+    (2, 9),
+    (2, 2),
+    (2, 3),
+    (3, 1),
+    (4, 8),
+    (4, 6),
+    (5, 13),
+    (6, 4),
+    (6, 1),
+    (6, 5),
+    (7, 2),
+    (7, 9),
+    (7, 11),
+    (8, 10),
+    (9, 12),
+    (9, 11),
+    (10, 1),
+    (11, 3),
+    (11, 5),
+    (11, 9);
+
+ [42000-214]
+2023-01-22 21:06:25 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabasePopulateService.main(DatabasePopulateService.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2023-01-22 21:07:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"
+Syntax error in SQL statement "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"; SQL statement:
+INSERT INTO client
+(name)
+VALUES
+    ('Zoro'),
+    ('Luffy'),
+    ('Tanjiro'),
+    ('Gon'),
+    ('Ichigo'),
+
+
+INSERT INTO project
+(client_id, start_date, finish_date)
+VALUES
+    (1, '2017-10-12', '2020-03-08'),
+    (5, '2020-05-18', '2024-12-01'),
+    (5, '2018-07-17', '2023-01-01'),
+    (1, '2021-01-10', '2022-09-05'),
+    (2, '2021-08-21', '2022-04-19'),
+    (4, '2022-11-24', '2023-02-02'),
+    (3, '2019-09-14', '2022-12-11'),
+    (3, '2018-12-25', '2024-10-14'),
+    (1, '2017-06-10', '2025-06-11'),
+    (4, '2023-11-11', '2027-08-17'),
+    (2, '2022-12-01', '2024-01-13');
+
+INSERT INTO project_worker
+(project_id, worker_id)
+VALUES
+    (1, 13),
+    (1, 7),
+    (2, 9),
+    (2, 2),
+    (2, 3),
+    (3, 1),
+    (4, 8),
+    (4, 6),
+    (5, 13),
+    (6, 4),
+    (6, 1),
+    (6, 5),
+    (7, 2),
+    (7, 9),
+    (7, 11),
+    (8, 10),
+    (9, 12),
+    (9, 11),
+    (10, 1),
+    (11, 3),
+    (11, 5),
+    (11, 9);
+
+ [42000-214]
+2023-01-22 21:09:59 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabasePopulateService.main(DatabasePopulateService.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2023-01-22 21:10:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"
+Syntax error in SQL statement "INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo'),\000a\000a\000aINSERT [*]INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13');\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9);\000a\000a"; SQL statement:
+INSERT INTO client
+(name)
+VALUES
+    ('Zoro'),
+    ('Luffy'),
+    ('Tanjiro'),
+    ('Gon'),
+    ('Ichigo'),
+
+
+INSERT INTO project
+(client_id, start_date, finish_date)
+VALUES
+    (1, '2017-10-12', '2020-03-08'),
+    (5, '2020-05-18', '2024-12-01'),
+    (5, '2018-07-17', '2023-01-01'),
+    (1, '2021-01-10', '2022-09-05'),
+    (2, '2021-08-21', '2022-04-19'),
+    (4, '2022-11-24', '2023-02-02'),
+    (3, '2019-09-14', '2022-12-11'),
+    (3, '2018-12-25', '2024-10-14'),
+    (1, '2017-06-10', '2025-06-11'),
+    (4, '2023-11-11', '2027-08-17'),
+    (2, '2022-12-01', '2024-01-13');
+
+INSERT INTO project_worker
+(project_id, worker_id)
+VALUES
+    (1, 13),
+    (1, 7),
+    (2, 9),
+    (2, 2),
+    (2, 3),
+    (3, 1),
+    (4, 8),
+    (4, 6),
+    (5, 13),
+    (6, 4),
+    (6, 1),
+    (6, 5),
+    (7, 2),
+    (7, 9),
+    (7, 11),
+    (8, 10),
+    (9, 12),
+    (9, 11),
+    (10, 1),
+    (11, 3),
+    (11, 5),
+    (11, 9);
+
+ [42000-214]
+2023-01-22 21:13:51 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabasePopulateService.main(DatabasePopulateService.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2023-01-22 21:13:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "INSERT INTO worker\000a(name, birthday, level, salary)\000aVALUES\000a    ('Misha', '1990-05-12', 'Senior', 6500),\000a    ('Taras', '2001-12-10', 'Junior', 1000),\000a    ('Hikita', '2002-07-17', 'Trainee', 450),\000a    ('Anton', '1998-10-03', 'Middle', 2000),\000a    ('Kolya', '2000-11-02', 'Junior', 750),\000a    ('Jonson', '2000-05-12', 'Trainee', 500),\000a    ('Jana', '1999-07-28', 'Middle', 2500),\000a    ('Galina', '2001-05-21', 'Junior', 1000),\000a    ('Ana', '1997-11-15', 'Middle', 2300),\000a    ('Kristina', '2002-01-11', 'Junior', 800),\000a    ('Gena', '2003-03-18', 'Trainee', 350),\000a    ('Tolik', '2000-08-13', 'Middle', 2000),\000a    ('Yaroslav', '2001-06-17', 'Junior', 800)\000a\000a[*]INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo')\000a\000a\000aINSERT INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13')\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9)\000a"
+Syntax error in SQL statement "INSERT INTO worker\000a(name, birthday, level, salary)\000aVALUES\000a    ('Misha', '1990-05-12', 'Senior', 6500),\000a    ('Taras', '2001-12-10', 'Junior', 1000),\000a    ('Hikita', '2002-07-17', 'Trainee', 450),\000a    ('Anton', '1998-10-03', 'Middle', 2000),\000a    ('Kolya', '2000-11-02', 'Junior', 750),\000a    ('Jonson', '2000-05-12', 'Trainee', 500),\000a    ('Jana', '1999-07-28', 'Middle', 2500),\000a    ('Galina', '2001-05-21', 'Junior', 1000),\000a    ('Ana', '1997-11-15', 'Middle', 2300),\000a    ('Kristina', '2002-01-11', 'Junior', 800),\000a    ('Gena', '2003-03-18', 'Trainee', 350),\000a    ('Tolik', '2000-08-13', 'Middle', 2000),\000a    ('Yaroslav', '2001-06-17', 'Junior', 800)\000a\000a[*]INSERT INTO client\000a(name)\000aVALUES\000a    ('Zoro'),\000a    ('Luffy'),\000a    ('Tanjiro'),\000a    ('Gon'),\000a    ('Ichigo')\000a\000a\000aINSERT INTO project\000a(client_id, start_date, finish_date)\000aVALUES\000a    (1, '2017-10-12', '2020-03-08'),\000a    (5, '2020-05-18', '2024-12-01'),\000a    (5, '2018-07-17', '2023-01-01'),\000a    (1, '2021-01-10', '2022-09-05'),\000a    (2, '2021-08-21', '2022-04-19'),\000a    (4, '2022-11-24', '2023-02-02'),\000a    (3, '2019-09-14', '2022-12-11'),\000a    (3, '2018-12-25', '2024-10-14'),\000a    (1, '2017-06-10', '2025-06-11'),\000a    (4, '2023-11-11', '2027-08-17'),\000a    (2, '2022-12-01', '2024-01-13')\000a\000aINSERT INTO project_worker\000a(project_id, worker_id)\000aVALUES\000a    (1, 13),\000a    (1, 7),\000a    (2, 9),\000a    (2, 2),\000a    (2, 3),\000a    (3, 1),\000a    (4, 8),\000a    (4, 6),\000a    (5, 13),\000a    (6, 4),\000a    (6, 1),\000a    (6, 5),\000a    (7, 2),\000a    (7, 9),\000a    (7, 11),\000a    (8, 10),\000a    (9, 12),\000a    (9, 11),\000a    (10, 1),\000a    (11, 3),\000a    (11, 5),\000a    (11, 9)\000a"; SQL statement:
+INSERT INTO worker
+(name, birthday, level, salary)
+VALUES
+    ('Misha', '1990-05-12', 'Senior', 6500),
+    ('Taras', '2001-12-10', 'Junior', 1000),
+    ('Hikita', '2002-07-17', 'Trainee', 450),
+    ('Anton', '1998-10-03', 'Middle', 2000),
+    ('Kolya', '2000-11-02', 'Junior', 750),
+    ('Jonson', '2000-05-12', 'Trainee', 500),
+    ('Jana', '1999-07-28', 'Middle', 2500),
+    ('Galina', '2001-05-21', 'Junior', 1000),
+    ('Ana', '1997-11-15', 'Middle', 2300),
+    ('Kristina', '2002-01-11', 'Junior', 800),
+    ('Gena', '2003-03-18', 'Trainee', 350),
+    ('Tolik', '2000-08-13', 'Middle', 2000),
+    ('Yaroslav', '2001-06-17', 'Junior', 800)
+
+INSERT INTO client
+(name)
+VALUES
+    ('Zoro'),
+    ('Luffy'),
+    ('Tanjiro'),
+    ('Gon'),
+    ('Ichigo')
+
+
+INSERT INTO project
+(client_id, start_date, finish_date)
+VALUES
+    (1, '2017-10-12', '2020-03-08'),
+    (5, '2020-05-18', '2024-12-01'),
+    (5, '2018-07-17', '2023-01-01'),
+    (1, '2021-01-10', '2022-09-05'),
+    (2, '2021-08-21', '2022-04-19'),
+    (4, '2022-11-24', '2023-02-02'),
+    (3, '2019-09-14', '2022-12-11'),
+    (3, '2018-12-25', '2024-10-14'),
+    (1, '2017-06-10', '2025-06-11'),
+    (4, '2023-11-11', '2027-08-17'),
+    (2, '2022-12-01', '2024-01-13')
+
+INSERT INTO project_worker
+(project_id, worker_id)
+VALUES
+    (1, 13),
+    (1, 7),
+    (2, 9),
+    (2, 2),
+    (2, 3),
+    (3, 1),
+    (4, 8),
+    (4, 6),
+    (5, 13),
+    (6, 4),
+    (6, 1),
+    (6, 5),
+    (7, 2),
+    (7, 9),
+    (7, 11),
+    (8, 10),
+    (9, 12),
+    (9, 11),
+    (10, 1),
+    (11, 3),
+    (11, 5),
+    (11, 9)
+ [42000-214]
+2023-01-23 13:47:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "monthCount" не найден
+Column "monthCount" not found [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at DatabaseQueryService.findLongestProject(DatabaseQueryService.java:61)
+	at TestSelectClass.main(TestSelectClass.java:11)
+2023-01-23 13:51:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Столбец "monthCount" не найден
+Column "monthCount" not found [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3518)
+	at org.h2.jdbc.JdbcResultSet.getInt(JdbcResultSet.java:337)
+	at DatabaseQueryService.findLongestProject(DatabaseQueryService.java:61)
+	at TestSelectClass.main(TestSelectClass.java:11)
+2023-01-23 14:08:42 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:96)
+	at TestSelectClass.main(TestSelectClass.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2023-01-23 15:07:37 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:96)
+	at TestSelectClass.main(TestSelectClass.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2023-01-23 15:08:03 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:96)
+	at TestSelectClass.main(TestSelectClass.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2023-01-23 15:08:15 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:96)
+	at TestSelectClass.main(TestSelectClass.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2023-01-23 15:09:05 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252)
+	at Database.<init>(Database.java:13)
+	at Database.<clinit>(Database.java:6)
+	at DatabaseQueryService.findProjectPrices(DatabaseQueryService.java:96)
+	at TestSelectClass.main(TestSelectClass.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/java/JavaDevModul4/MegaSoft.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
