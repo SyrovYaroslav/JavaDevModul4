@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseInitService {
     public static void main(String[] args) {
@@ -10,7 +13,12 @@ public class DatabaseInitService {
                     "\n",
                     Files.readAllLines(Paths.get(InitDbFilename))
             );
-            Database.getInstanse().executeUpdate(sql);
+            try(Connection connection = Database.getInstanse().getConnection();
+                Statement st = connection.createStatement()) {
+                st.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
